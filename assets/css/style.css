@@ -1,0 +1,24 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --bg-color: #B171D0;
+  --error: #C80000;
+  --content-primary: #333333;
+  --content-secondary: #999999;
+  --content-tertiary: #555555;
+  --gradient: top, #e8519e, #c77ff2, #e8519e, #c77ff2;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+legend {
+  font-weight: var(--content-primary);
+  font-size: 2rem;
+  font-weight: 600;
+}
