@@ -59,6 +59,9 @@ legend {
   font-size: 2.4rem;
   font-weight: 700;
   margin-bottom: 3.6875rem;
+  transform: translateY(-2rem);
+  opacity: 0;
+  animation: down 500ms linear forwards;
 }
 
 .inputWrapper {
@@ -101,6 +104,32 @@ legend {
     &::placeholder {
       color: var(--content-tertiary);
     }
+  }
+  
+  &:nth-child(2)  {
+    opacity: 0;
+    animation: down 500ms 500ms linear forwards;
+    transform: translateY(-2rem);
+  }
+  &:nth-child(3)  {
+    opacity: 0;
+    animation: down 500ms 600ms linear forwards;
+    transform: translateY(-2rem);
+  }
+  &:nth-child(4)  {
+    opacity: 0;
+    animation: down 500ms 700ms linear forwards;
+    transform: translateY(-2rem);
+  }
+  &:nth-child(5)  {
+    opacity: 0;
+    animation: down 500ms 800ms linear forwards;
+    transform: translateY(-2rem);
+  }
+  &:nth-child(6)  {
+    opacity: 0;
+    animation: down 500ms 900ms linear forwards;
+    transform: translateY(-2rem);
   }
 
   &:hover .alert, .alert:hover {
@@ -146,6 +175,9 @@ legend {
   font-size: 0.9375rem;
   color: var(--content-tertiary);
   margin-bottom: 2.8125rem;
+  opacity: 0;
+  animation: down 500ms 1s linear forwards;
+  transform: translateY(-2rem);
 
   input {
     opacity: 0;
@@ -225,6 +257,9 @@ legend {
   #singUp {
     background-image: linear-gradient(to top, #e8519e, #c77ff2);
     color: #fff;
+    opacity: 0;
+    animation: down 500ms 2s linear forwards;
+    transform: translateY(-2rem);
   }
   #singUp:hover, #singUp:focus {
     background-image: linear-gradient(to bottom, #e8519e, #c77ff2);
@@ -232,6 +267,9 @@ legend {
 
   #singIn {
     color: var(--content-primary);
+    opacity: 0;
+    animation: down 500ms 3s linear forwards;
+    transform: translateY(-2rem);
 
     i {
       display: inline-block;
@@ -240,5 +278,12 @@ legend {
   }
   #singIn:hover, #singIn:focus {
     color: var(--bg-color);
+  }
+}
+
+@keyframes down {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

@@ -1,19 +1,44 @@
 // Elementos
+const form = document.querySelector("form");
 const inputs = document.querySelectorAll('.required');
 const checkOk = document.querySelectorAll('.inputWrapper .checkOK');
 const alerts = document.querySelectorAll('.alert');
 
 // Eventos
-inputs[0].addEventListener('input', nameValidate);
-// inputs[0].addEventListener('click', () => {if (inputs[0].value === "") {
-//   setError(0)
-// }});
-inputs[1].addEventListener('input', emailValidate);
-inputs[2].addEventListener('input', nameValidate);
-inputs[3].addEventListener('input', passwordValidate);
-inputs[4].addEventListener('input', repeatPasswordValidate);
+form.addEventListener('submit', (event) => {
+  event.preventDefault()
 
-// Funções
+  nameValidate();
+  emailValidate();
+  userNameValidate();
+  passwordValidate();
+  comparePassword();
+})
+
+inputs[0].addEventListener('input', nameValidate);
+inputs[1].addEventListener('input', emailValidate);
+inputs[2].addEventListener('input', userNameValidate);
+inputs[3].addEventListener('input', passwordValidate);
+inputs[4].addEventListener('input', comparePassword);
+
+// Loops
+for (let i = 0; i < inputs.length; i++) {
+  inputs[i].addEventListener('click', () => {
+    setError(i)
+  });
+
+  inputs[i].addEventListener('input', () => {
+    switch (i) {
+      case 0: nameValidate(); break;
+      case 1: emailValidate(); break;
+      case 2: userNameValidate(); break;
+      case 3: passwordValidate(); break;
+      case 4: comparePassword(); break;
+    }
+  });
+}
+
+// Functions
 function nameValidate() {
   if (inputs[0] === "" || inputs[0].value.length < 3) {
     removeOk(0)
@@ -35,12 +60,35 @@ function emailValidate() {
   }
 }
 
+function userNameValidate() {
+  if (inputs[2] === "" || inputs[2].value.length < 3) {
+    removeOk(2)
+    setError(2);
+  } else {
+    removeError(2);
+    setOk(2)
+  }
+}
 function passwordValidate() {
-  if (inputs[3])
+  if (inputs[3].value.length < 8) {
+    removeOk(3)
+    setError(3);
+  } else {
+    removeError(3);
+    setOk(3)
+
+    comparePassword()
+  }
 }
 
-function repeatPasswordValidate() {
-
+function comparePassword() {
+  if (inputs[3].value === inputs[4].value && inputs[4].value.length >= 8) {
+    setOk(4)
+    removeError(4);
+  } else {
+    setError(4);
+    removeOk(4)
+  }
 }
 
 // Aux Functions
