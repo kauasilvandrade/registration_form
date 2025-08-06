@@ -46,6 +46,12 @@ body {
   }
 }
 
+@media (width <= 30rem) {
+  .actionsForm {
+    flex-direction: column;
+  }
+}
+
 main {
   padding: 4.5rem 3.125rem 3.125rem 3.125rem;
 }
