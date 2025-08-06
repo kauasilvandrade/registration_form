@@ -36,7 +36,7 @@ body {
     background-repeat: no-repeat; 
     background-size: cover;
     position: relative;
-
+    
     &::before {
       content: '';
       background-image: linear-gradient(var(--gradient));
@@ -44,9 +44,20 @@ body {
       inset: 0;
     }
   }
+
+  .inputWrapper .alert {
+    top: 2.1rem;
+  } 
+
 }
 
+.alert {
+  top: 5.6rem;
+} 
+
+
 @media (width <= 30rem) {
+
   .actionsForm {
     flex-direction: column;
   }
@@ -102,7 +113,7 @@ legend {
     font-size: 1.37em;
     padding: 0.6rem;
     padding-left: 0;
-    margin-block: 0.375rem 2.8125rem;
+    margin-block: 0.375rem 2.9rem;
     border: none;
     outline: none;
     border-bottom: 2px solid var(--content-tertiary );
@@ -165,7 +176,6 @@ legend {
     gap: 0.5rem;
     position: absolute;
     right: 0;
-    top: 2.1rem;
     font-size: 0.8em;
     display: none;
 
@@ -181,6 +191,7 @@ legend {
   font-size: 0.9375rem;
   color: var(--content-tertiary);
   margin-bottom: 2.8125rem;
+  margin-top: 1rem;
   opacity: 0;
   animation: down 500ms 1s linear forwards;
   transform: translateY(-2rem);
